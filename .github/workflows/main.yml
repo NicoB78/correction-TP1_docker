@@ -44,7 +44,7 @@ jobs:
          context: ./simple-api
          # Note: tags has to be all lower-case
          tags:  ${{secrets.USERNAME}}/dockerhubrepo-correction_tp1:simple-api
-         #push: ${{ github.ref == 'refs/heads/main }}
+         push: ${{ github.ref == 'refs/heads/main }}
 
      - name: Build image and push database
        uses: docker/build-push-action@v2 
@@ -52,8 +52,8 @@ jobs:
          # relative path to the place where source code with Dockerfile is located
          context: ./database
          # Note: tags has to be all lower-case
-         tags:  ${{secrets.USERNAME}}/dockerhubrepo-correction_tp1:simple-api
-         #push: ${{ github.ref == 'refs/heads/main }}
+         tags:  ${{secrets.USERNAME}}/dockerhubrepo-correction_tp1:database
+         push: ${{ github.ref == 'refs/heads/main }}
      
      - name: Build image and push httpd
        uses: docker/build-push-action@v2 
@@ -61,8 +61,8 @@ jobs:
          # relative path to the place where source code with Dockerfile is located
          context: ./httpd
          # Note: tags has to be all lower-case
-         tags:  ${{secrets.USERNAME}}/dockerhubrepo-correction_tp1:simple-api
+         tags:  ${{secrets.USERNAME}}/dockerhubrepo-correction_tp1:httpd
          # build on feature branches, push only on main branch
-         #push: ${{ github.ref == 'refs/heads/main }}
+         push: ${{ github.ref == 'refs/heads/main }}
        
    
