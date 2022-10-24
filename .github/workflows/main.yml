@@ -43,7 +43,9 @@ jobs:
          tags:  ${{secrets.DOCKERHUB_NBEQUE}}/tp-devops-epf/simple-api
 
      - name: Build image and push database
-         # DO the same for database
-
+       run: docker build nbeque/database .
+     
      - name: Build image and push httpd
-       # DO the same for httpd
+       run: docker build nbeque/httpd .
+       
+   
