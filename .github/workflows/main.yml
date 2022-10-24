@@ -41,7 +41,7 @@ jobs:
        uses: docker/build-push-action@v2 
        with:
          # relative path to the place where source code with Dockerfile is located
-         context: ./simple-api/backend
+         context: ./simple-api
          # Note: tags has to be all lower-case
          tags:  ${{secrets.nbeque}}/dockerhubrepo-correction_tp1:simple-api
          push: ${{ github.ref == 'refs/heads/main }}
@@ -50,7 +50,7 @@ jobs:
        uses: docker/build-push-action@v2 
        with:
          # relative path to the place where source code with Dockerfile is located
-         context: ./simple-api/database
+         context: ./database
          # Note: tags has to be all lower-case
          tags:  ${{secrets.nbeque}}/dockerhubrepo-correction_tp1:simple-api
          push: ${{ github.ref == 'refs/heads/main }}
@@ -59,7 +59,7 @@ jobs:
        uses: docker/build-push-action@v2 
        with:
          # relative path to the place where source code with Dockerfile is located
-         context: ./simple-api/httpd
+         context: ./httpd
          # Note: tags has to be all lower-case
          tags:  ${{secrets.nbeque}}/dockerhubrepo-correction_tp1:simple-api
          # build on feature branches, push only on main branch
